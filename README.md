@@ -1,16 +1,9 @@
-# flappy_bird
 
-My own flappy bird....
+# Flappy bird with flutter
 
-## Getting Started
+Flappy Bird is a simple yet addictive mobile game where players navigate a bird through a series of pipes by tapping the screen to keep it airborne. Despite its basic mechanics, the game gained immense popularity for its challenging gameplay and retro graphics.
 
-This project is a starting point for a Flutter application.
+So I decided to make my own Flappy bird clone using flutter.
 
-A few resources to get you started if this is your first Flutter project:
+<img src="https://github.com/Onnesok/flappy-bird/blob/main/assets/others/my_flappy_bird.gif" alt="Avatar" clas="center">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
