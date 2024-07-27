@@ -7,6 +7,7 @@ import 'package:flappy_bird/game/configuration.dart';
 import 'package:flappy_bird/game/flappy_bird_game.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flame_audio/flame_audio.dart';
 
 class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBirdGame>, CollisionCallbacks{
   Bird();
@@ -39,6 +40,7 @@ class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBird
       ),
     );
     current = BirdMovement.up;
+    FlameAudio.play(Assets.flying);
   }
 
   @override
@@ -54,6 +56,7 @@ class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBird
     score = 0;
   }
   void gameOver() {
+    FlameAudio.play(Assets.collision);
     gameRef.overlays.add('gameOver');
     gameRef.pauseEngine();
     game.isHit = true;
@@ -63,5 +66,8 @@ class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBird
   void update(double dt) {
     super.update(dt);
     position.y += Config.birdVelocity * dt;
+    if (position.y < 1) {
+      gameOver();
+    }
   }
 }

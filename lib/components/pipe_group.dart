@@ -4,9 +4,11 @@ import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
 import 'package:flappy_bird/game/flappy_bird_game.dart';
 import 'package:flutter/cupertino.dart';
+import '../game/assets.dart';
 import '../game/pipe_position.dart';
 import '../components/pipe.dart';
 import '../game/configuration.dart';
+import 'package:flame_audio/flame_audio.dart';
 
 class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
   PipeGroup();
@@ -42,6 +44,7 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
   }
 
   void updateScore() {
+    FlameAudio.play(Assets.point);
     gameRef.bird.score += 1;
   }
 }
