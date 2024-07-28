@@ -9,6 +9,7 @@ import 'package:flappy_bird/components/background..dart';
 import 'package:flappy_bird/components/bird.dart';
 import 'package:flappy_bird/components/pipe_group.dart';
 import 'package:flappy_bird/game/configuration.dart';
+import 'package:flutter/material.dart';
 
 import '../components/ground.dart';
 
@@ -35,14 +36,16 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection{
       position: Vector2(size.x / 2, size.y / 2 * 0.2),
       anchor: Anchor.center,
       textRenderer: TextPaint(
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 40,
           fontWeight: FontWeight.bold,
           fontFamily: 'Game',
+          color: Colors.white,
         ),
       ),
     );
   }
+
 
   @override
   void onTap() {
@@ -55,6 +58,27 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection{
     super.update(dt);
     interval.update(dt);
 
-    score.text = 'score: ${bird.score}';
+    if (bird.score >= bird.highScore) {
+      score.textRenderer = TextPaint(
+        style: TextStyle(
+          fontSize: 40,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Game',
+          color: Colors.amber,
+        ),
+      );
+    } else {
+      score.textRenderer = TextPaint(
+        style: TextStyle(
+          fontSize: 40,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Game',
+          color: Colors.white,
+        ),
+      );
+    }
+
+    score.text = 'Score: ${bird.score}';
   }
+
 }

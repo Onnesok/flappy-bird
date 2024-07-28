@@ -5,6 +5,7 @@ import 'package:flappy_bird/game/assets.dart';
 import 'package:flappy_bird/game/bird_movement.dart';
 import 'package:flappy_bird/game/configuration.dart';
 import 'package:flappy_bird/game/flappy_bird_game.dart';
+import 'package:flappy_bird/game/high_score_manager.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flame_audio/flame_audio.dart';
@@ -13,6 +14,8 @@ class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBird
   Bird();
 
   int score = 0;
+  int highScore = 0;
+  final HighScoreManager highScoreManager = HighScoreManager();
 
   @override
   Future<void> onLoad() async{
@@ -29,6 +32,7 @@ class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBird
       BirdMovement.down: bird_down_flap,
     };
     add(CircleHitbox());
+    highScore = await highScoreManager.getHighScore();
   }
 
   void fly() {
@@ -56,6 +60,10 @@ class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBird
     score = 0;
   }
   void gameOver() {
+    if (score > highScore) {
+      highScore = score;
+      highScoreManager.saveHighScore(highScore);
+    }
     FlameAudio.play(Assets.collision);
     gameRef.overlays.add('gameOver');
     gameRef.pauseEngine();
