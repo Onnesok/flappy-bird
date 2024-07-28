@@ -7,6 +7,7 @@ import 'package:flame/game.dart';
 import 'package:flame/text.dart';
 import 'package:flappy_bird/components/background..dart';
 import 'package:flappy_bird/components/bird.dart';
+import 'package:flappy_bird/components/clouds.dart';
 import 'package:flappy_bird/components/pipe_group.dart';
 import 'package:flappy_bird/game/configuration.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection{
       bird = Bird(),
       PipeGroup(),
       score = buildScore(),
+      Cloud(),
     ]);
     interval.onTick = () => add(PipeGroup());
   }
