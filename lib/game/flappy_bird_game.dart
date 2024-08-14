@@ -82,5 +82,4 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection{
 
     score.text = 'Score: ${bird.score}';
   }
-
 }
