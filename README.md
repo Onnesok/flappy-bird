@@ -13,6 +13,7 @@ I decided to make my own Flappy Bird clone using Flutter. I have used the `flame
 
 ## Demo
 <p align="center">
+    <img src="https://github.com/Onnesok/flappy-bird/blob/main/assets/others/banner.png" alt="Flappy Bird banner">
     <img src="https://github.com/Onnesok/flappy-bird/blob/main/assets/others/my_flappy_bird.gif" alt="Flappy Bird Demo">
 </p>
 
