@@ -19,8 +19,9 @@ Clone repository:
 git clone https://github.com/Onnesok/flappy-bird
 ```
 
-Android and Ios app available in release section... Or download from
+Android and Ios app available in release section..... You can tap there and download Or tap here and select which file you need.... https://github.com/Onnesok/flappy-bird/releases
 
+### Note: For ``Android`` device download ``apk`` file.... If one file does not work try another.... There are different files based on different architecture of your android device... For ``Ios or Iphones`` download ``IPA`` file..... All files are listed in release section...
 
 ##  Gameplay
 <p align="center">
