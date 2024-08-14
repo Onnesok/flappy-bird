@@ -23,6 +23,7 @@ jobs:
         with:
           channel: 'stable'
           architecture: x64
+      - run: flutter pub get # This command installs packages based on pubspec.yaml
       - run: flutter build apk --release --split-per-abi
       - run: |
           flutter build ios --no-codesign
